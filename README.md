@@ -1,3 +1,7 @@
+This project was built to fulfill the requirements of this coding challenge:
+
+https://github.com/Chainyard/coding-challenge
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
