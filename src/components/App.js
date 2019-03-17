@@ -6,14 +6,37 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import BaseLayout from './base-layout';
 
 class App extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      block: ""
+    };
+  }
+
+  componentWillMount() {
+      this.setState({
+        block: ""
+      });
+  }
+
+
+
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
+      <BrowserRouter>
+        <BaseLayout>
+          <Switch>
 
-        </header>
-      </div>
+          </Switch>
+        </BaseLayout>
+      </BrowserRouter>
+      // <div className="App">
+      //   <header className="App-header">
+      //     <img src={logo} className="App-logo" alt="logo" />
+      //
+      //   </header>
+      // </div>
     );
   }
 }

@@ -4,7 +4,6 @@ import { NavLink } from 'react-router-dom';
 export default class Header extends Component {
   constructor(props) {
     super(props);
-    this.handleLoginClick = this.handleLoginClick.bind(this);
     this.handleButtonClick = this.handleButtonClick.bind(this);
     this.state = {};
   }
@@ -14,7 +13,7 @@ handleButtonClick() {
 }
 
   render() {
-
+    // This styles the buttons on the right.
     let changeButtons = {
         "marginLeft": "200pt",
         "width": "300pt",
@@ -24,23 +23,33 @@ handleButtonClick() {
         "listStyleType": "none",
         "justifyContent": "space-between"
     }
+    // This styles the outer header boundary and content positions.
+    let entireHeader = {
+        "width": "100%",
+        "display": "flex",
+        "listStyleType": "none",
+        "justifyContent": "center",
+        "backgroundColor": "#fafafb",
+        "padding": "20px"
+    }
 
 
     let rightButtons = <div style={changeButtons}>
                       <li>
                         <NavLink activeClassName="selected" onClick={this.handleButtonClick} to="/">
-                          <input className='btn btn-outline-primary' type='submit' value='LogOut'/>
+                          <input className='btn btn-outline-primary' type='submit' value='Button 1'/>
                         </NavLink>
                       </li>
                       <li>
                         <NavLink activeClassName="selected" to="/block">
-                          <span className='btn btn-outline-primary' type='submit'>Button 2</span>
+                        <input className='btn btn-outline-primary' type='submit' value='Button 2'/>
+                          {/* <span className='btn btn-outline-primary' type='submit'>Button 2</span> */}
                         </NavLink>
                       </li>
                     </div>;
 
       return (
-        <div className="totalHeader" >
+        <div className="totalHeader" style={entireHeader}>
         <li>
           <NavLink activeClassName="selected" to="/">
             <input className='btn btn-outline-primary' type='submit' value='Homepage'/>
