@@ -28,7 +28,7 @@ class App extends Component {
         <BaseLayout>
           <Switch>
             <Route exact path="/" render={(props) => ( <Homepage /> )} />
-            <Route path="/singleBlock/:value" render={(props) => ( <SingleBlock /> )} />
+            <Route path="/:value" render={(props) => ( <SingleBlock {...props}/> )} />
           </Switch>
         </BaseLayout>
       </BrowserRouter>

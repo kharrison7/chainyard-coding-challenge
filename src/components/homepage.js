@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './App.css';
 import './bootstrap.min.css';
 import { Link } from 'react-router-dom';
-// import Header from './header.js';
 import request from 'superagent';
 import SingleBlock from './singleBlock.js'
 
@@ -14,15 +13,9 @@ export default class Homepage extends Component {
     };
   }
 
-
   componentWillMount() {
-
     let date = Date.now();
-    // let ts = Math.round(new Date().getTime() / 1000);
-    // let tsYesterday = (ts - (24 * 3600))*1000;
-    // console.log(date);
-    // console.log(tsYesterday);
-
+    //makes a request to the API for all the blocks for one day.
        request
          .get("https://cors-anywhere.herokuapp.com/https://blockchain.info/blocks/"+date+"?format=json")
          // .get("https://cors-anywhere.herokuapp.com/https://blockchain.info/latestblock")
@@ -36,7 +29,7 @@ export default class Homepage extends Component {
             console.log("res.body: "+res.body);
             if(res.body !== null){
               console.log("blocks received");
-              console.log(res.body);
+              console.log(res.body.blocks);
               this.setState({blocks: res.body.blocks});
             }
            }
@@ -54,7 +47,7 @@ export default class Homepage extends Component {
                     <div className="blocks">
                       {this.state.blocks.map( (block,i) => {
                         return <div key={i}>
-                          <Link to={`/singleBlock/${ block.hash }`}>{block.hash}</Link>
+                          <Link to={`/${ block.hash }`}>{block.hash}</Link>
                           <p>Height: {block.height}</p>
                           <p>Main_Chain: {block.main_chain}</p>
                           <p>Time: {block.time}</p>
