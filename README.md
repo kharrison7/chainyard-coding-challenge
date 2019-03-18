@@ -2,6 +2,22 @@ This project was built to fulfill the requirements of this coding challenge:
 
 https://github.com/Chainyard/coding-challenge
 
+Instructions:
+Create a simple web app that allows a user to browse blockchain block & transaction data from the Blockchain.org public API. The user should be able to:
+
+View a single block
+View a single transaction on a block
+View the latest block
+
+Additionally, my web application has a homepage that displays all the blocks created over the last 24 hours.
+
+Host Site:
+http://chainyardcodingchallenge.s3-website-us-east-1.amazonaws.com/
+
+- - -
+
+Resources About Myself:
+
 Github:
 https://github.com/kharrison7
 
@@ -15,14 +31,11 @@ I appreciate your consideration.
 
 - - -
 
-Host Site:
-http://chainyardcodingchallenge.s3-website-us-east-1.amazonaws.com/
-
 To update the app:
 npm run build and npm run deploy
 
 Must Manage Permissions to make available:
-Permissions > Edit> Manage public bucket policies for this bucket
+Permissions > Edit> Manage public bucket policies for this bucket,
 Public access settings updated successfully
 
 Hosting using AWS S3 Bucket using CLI:
