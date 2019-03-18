@@ -5,15 +5,25 @@ https://github.com/Chainyard/coding-challenge
 Github:
 https://github.com/kharrison7
 
-Profile:
-https://kharrison7.github.io/Profile/
-
 Resume:
 https://kharrison7.github.io/Profile/Kevin.Harrison.Resume.pdf
+
+Profile:
+https://kharrison7.github.io/Profile/
 
 I appreciate your consideration.
 
 - - -
+
+Host Site:
+http://chainyardcodingchallenge.s3-website-us-east-1.amazonaws.com/
+
+To update the app:
+npm run build and npm run deploy
+
+Must Manage Permissions to make available:
+Permissions > Edit> Manage public bucket policies for this bucket
+Public access settings updated successfully
 
 Hosting using AWS S3 Bucket using CLI:
 https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html
@@ -26,7 +36,6 @@ https://docs.aws.amazon.com/cli/latest/userguide/install-macos.html
 
 Assigning Public Access to the Bucket:
 https://stackoverflow.com/questions/53496152/aws-s3-bucket-policy-editor-access-denied
-
 
 - - -
 
