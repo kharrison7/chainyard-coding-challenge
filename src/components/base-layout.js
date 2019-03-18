@@ -7,7 +7,6 @@ export default class BaseLayout extends Component {
   constructor(props) {
     super(props)
     this.state = {
-
     };
   }
 

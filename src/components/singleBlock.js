@@ -17,6 +17,7 @@ export default class SingleBlock extends Component {
     };
   }
 
+
   componentWillMount() {
        let hash = this.state.match.params.value;
        if(hash === 'LatestBlock'){
@@ -73,14 +74,21 @@ export default class SingleBlock extends Component {
     console.log(this.state.block);
     console.log("match: ");
     console.log(this.state.match);
+    //singleBlockPageContents vary based on whether the block is the latest or a specific block.
     let singleBlockPageContents = null;
-    if (this.state.block) {
+    if (this.state.block && this.state.match.params.value != 'LatestBlock') {
       singleBlockPageContents = <div>
                                   <p>Block Hash: {this.state.block.hash}</p>
                                   <p>Height: {block.height}</p>
                                   <p>Time: {block.time}</p>
                                   <p>Size: {block.size}</p>
                                   <p>Previous Block: {block.prev_block}</p>
+                                </div>;
+    } else if (this.state.block && this.state.match.params.value === 'LatestBlock'){
+      singleBlockPageContents = <div>
+                                  <p>Block Hash: {this.state.block.hash}</p>
+                                  <p>Height: {block.height}</p>
+                                  <p>Time: {block.time}</p>
                                 </div>;
     } else {
       singleBlockPageContents = <div>

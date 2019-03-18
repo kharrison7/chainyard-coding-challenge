@@ -9,6 +9,7 @@ export default class Homepage extends Component {
     super(props)
     this.state = {
       blocks: [],
+      fullDate: null,
       totalNumberOfBlocks: 0
     };
   }
@@ -30,27 +31,42 @@ export default class Homepage extends Component {
             if(res.body !== null){
               console.log("blocks received");
               console.log(res.body.blocks);
-              this.setState({blocks: res.body.blocks});
+              console.log(res.header.date);
+              let myDate = Date(res.header.date);
+              this.setState({blocks: res.body.blocks, fullDate: myDate});
             }
            }
          })
   }
 
   render() {
+      let fullDate = this.state.fullDate;
       return (
         <div className="containment-for-homepage">
           <section className="row">
             <div className="col-md-10 offset-md-1">
               <div className="card">
                 <div className="card-block">
-                  <h5>Blocks from Today:</h5>
+                  <h5>Blocks from Today: {this.state.blocks.length}</h5>
+                  <h5>Today is: {this.state.fullDate}</h5>
+                  <hr />
                     <div className="blocks">
                       {this.state.blocks.map( (block,i) => {
+                        let mainChain = '';
+                        if(block.main_chain === true){
+                          mainChain = <div>
+                                        <p>Main_Chain: True</p>
+                                      </div>
+                        } else {
+                          mainChain = <div>
+                                        <p>Main_Chain: False</p>
+                                      </div>
+                        }
                         return <div key={i}>
                           <Link to={`/block/${ block.hash }`}>Block Hash: {block.hash}</Link>
                           <p>Height: {block.height}</p>
-                          <p>Main_Chain: {block.main_chain}</p>
-                          <p>Time: {block.time}</p>
+                          {mainChain}
+                          <p>Raw Time: {block.time}</p>
                           <hr />
                         </div>
                       })}

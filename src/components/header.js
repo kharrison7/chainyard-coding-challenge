@@ -35,12 +35,12 @@ handleButtonClick() {
 
     let rightButtons = <div style={changeButtons}>
                       <li>
-                        <NavLink activeClassName="selected" onClick={this.handleButtonClick} to="/">
+                        <NavLink activeClassName="selected" to="/">
                           <input className='btn btn-outline-primary' type='submit' value='Button 1'/>
                         </NavLink>
                       </li>
                       <li>
-                        <NavLink activeClassName="selected" to="/block/LatestBlock">
+                        <NavLink activeClassName="selected" onClick={this.handleButtonClick} to="/block/LatestBlock">
                           <input className='btn btn-outline-primary' type='submit' value='Latest Block'/>
                         </NavLink>
                       </li>
