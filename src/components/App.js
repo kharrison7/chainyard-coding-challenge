@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import './bootstrap.min.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+
 import BaseLayout from './base-layout';
+import Homepage from './homepage.js';
+import SingleBlock from './singleBlock.js'
 
 class App extends Component {
   constructor(props){
@@ -20,23 +22,16 @@ class App extends Component {
   }
 
 
-
-
   render() {
     return (
       <BrowserRouter>
         <BaseLayout>
           <Switch>
-
+            <Route exact path="/" render={(props) => ( <Homepage /> )} />
+            <Route path="/singleBlock/:value" render={(props) => ( <SingleBlock /> )} />
           </Switch>
         </BaseLayout>
       </BrowserRouter>
-      // <div className="App">
-      //   <header className="App-header">
-      //     <img src={logo} className="App-logo" alt="logo" />
-      //
-      //   </header>
-      // </div>
     );
   }
 }

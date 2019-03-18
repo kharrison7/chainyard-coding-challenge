@@ -33,7 +33,6 @@ handleButtonClick() {
         "padding": "20px"
     }
 
-
     let rightButtons = <div style={changeButtons}>
                       <li>
                         <NavLink activeClassName="selected" onClick={this.handleButtonClick} to="/">
@@ -42,8 +41,7 @@ handleButtonClick() {
                       </li>
                       <li>
                         <NavLink activeClassName="selected" to="/block">
-                        <input className='btn btn-outline-primary' type='submit' value='Button 2'/>
-                          {/* <span className='btn btn-outline-primary' type='submit'>Button 2</span> */}
+                          <input className='btn btn-outline-primary' type='submit' value='Button 2'/>
                         </NavLink>
                       </li>
                     </div>;
