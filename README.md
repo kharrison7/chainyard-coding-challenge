@@ -4,6 +4,10 @@ https://github.com/Chainyard/coding-challenge
 
 Remember to turn on CORS
 
+Herokuapp used to deal with CORS requirements in the Header:
+
+https://cors-anywhere.herokuapp.com/
+
 - - -
 
 
