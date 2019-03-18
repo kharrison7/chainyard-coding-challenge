@@ -2,6 +2,7 @@ This project was built to fulfill the requirements of this coding challenge:
 
 https://github.com/Chainyard/coding-challenge
 
+Remember to turn on CORS
 
 - - -
 

@@ -15,17 +15,58 @@ export default class Homepage extends Component {
 
 
   componentWillMount() {
+
+  let https = require("https");
+  let theUrl = "https://blockchain.info/latestblock";
+  let searchPages = (theUrl) => {
+    console.log(theUrl);
+    https.get(theUrl, (resp) => {
+        let data = '';
+        resp.on('data', (chunk) => {
+            data += chunk;
+            console.log("chunk: "+chunk);
+        });
+        resp.on('end', () => {
+            console.log("resp:"+resp._readableState);
+            console.log("resp:"+resp[1]);
+
+
+            let objString = JSON.stringify(resp);
+            console.log("objString:"+objString);
+            console.log("data:"+data);
+            // let jsonObj = JSON.parse(data);
+            // console.log(jsonObj);
+        });
+    }).on("error", (err) => {
+        console.log("Error: " + err.message);
+    });
+  }
+  searchPages(theUrl);
+
+//
+//
+//
+
+
     let date = Date.now();
+    let ts = Math.round(new Date().getTime() / 1000);
+    let tsYesterday = (ts - (24 * 3600))*1000;
     console.log(date);
+    console.log(tsYesterday);
+
        request
-         .get("https://blockchain.info/blocks/"+date+"?format=json")
+         // .get("https://blockchain.info/blocks/"+date+"?format=json")
+         .get("https://blockchain.info/latestblock")
          .end((err, res) => {
            if (err) {
              console.log("failed to get blocks!");
             //  this.setState({error: res.body.error});
            } else {
-            console.log("blocks recieved");
+            console.log("response received");
+            console.log(res);
+            console.log("res.body: "+res.body);
             if(res.body !== null){
+              console.log("blocks received");
               console.log(res.body);
               console.log(res.body.blocks[0]);
               this.setState({blocks: res.body.blocks});
