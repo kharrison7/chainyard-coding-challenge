@@ -12,11 +12,12 @@ export default class SingleBlock extends Component {
     this.state = {
     id: 1,
     block: '',
+    match: props.match,
     };
   }
 
   componentWillMount() {
-       let hash = '00000000000000000028c959eb3f9ecd0b3594d89d23ea20df55076f5da9d5f8';
+       let hash = this.state.match.params.value;
        console.log("props: "+this.props[0]);
        request
          .get("https://cors-anywhere.herokuapp.com/https://blockchain.info/rawblock/"+hash+"?format=json")
@@ -44,6 +45,8 @@ export default class SingleBlock extends Component {
     let block = this.state.block;
     console.log("Block: ");
     console.log(this.state.block);
+    console.log("match: ");
+    console.log(this.state.match);
     let singleBlockPageContents = null;
     if (this.state.block) {
       singleBlockPageContents = <div>

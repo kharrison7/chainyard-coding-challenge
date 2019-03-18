@@ -3,13 +3,13 @@ import './App.css';
 import './bootstrap.min.css';
 import { Link } from 'react-router-dom';
 import request from 'superagent';
-import SingleBlock from './singleBlock.js'
 
 export default class Homepage extends Component {
   constructor(props) {
     super(props)
     this.state = {
       blocks: [],
+      totalNumberOfBlocks: 0
     };
   }
 
@@ -47,7 +47,7 @@ export default class Homepage extends Component {
                     <div className="blocks">
                       {this.state.blocks.map( (block,i) => {
                         return <div key={i}>
-                          <Link to={`/${ block.hash }`}>{block.hash}</Link>
+                          <Link to={`/block/${ block.hash }`}>Block Hash: {block.hash}</Link>
                           <p>Height: {block.height}</p>
                           <p>Main_Chain: {block.main_chain}</p>
                           <p>Time: {block.time}</p>

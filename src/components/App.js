@@ -21,14 +21,13 @@ class App extends Component {
       });
   }
 
-
   render() {
     return (
       <BrowserRouter>
         <BaseLayout>
           <Switch>
             <Route exact path="/" render={(props) => ( <Homepage /> )} />
-            <Route path="/:value" render={(props) => ( <SingleBlock {...props}/> )} />
+            <Route path="/block/:value" render={(props) => ( <SingleBlock {...props}/> )} />
           </Switch>
         </BaseLayout>
       </BrowserRouter>
