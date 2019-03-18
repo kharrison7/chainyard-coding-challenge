@@ -8,15 +8,13 @@ export default class Header extends Component {
     this.state = {};
   }
 
-handleButtonClick() {
-
-}
+handleButtonClick() {}
 
   render() {
     // This styles the buttons on the right.
     let changeButtons = {
-        "marginLeft": "40%",
-        "width": "300pt",
+        "margin-left": "30%",
+        "width": "100pt",
         "display": "flex",
         "border": "1pt black blue",
         "backgroundColor": "none",

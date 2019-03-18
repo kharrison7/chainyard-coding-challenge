@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import './App.css';
-import './bootstrap.min.css';
+import '../styles/App.css';
+import '../styles/bootstrap.min.css';
 import request from 'superagent';
 
 export default class SingleTransaction extends Component {
