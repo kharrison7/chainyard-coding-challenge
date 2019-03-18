@@ -79,7 +79,7 @@ export default class SingleBlock extends Component {
                   {this.state.block.tx.map( (txCode,i) => {
                     // txCode.map( (txCodeSub,u) => {
                       return <div key={i}>
-                              <Link to={`/transaction/${ txCode.hash }`}>Transaction: {txCode.hash}</Link>
+                              <Link to={`/transaction/${ txCode.hash }`}>Transaction {i}: {txCode.hash}</Link>
                             </div>
                     // })
                   })}
@@ -95,6 +95,7 @@ export default class SingleBlock extends Component {
                                   <p>Time: {block.time}</p>
                                   <p>Size: {block.size}</p>
                                   <p>Previous Block: {block.prev_block}</p>
+                                  <p>Transactions: {this.state.block.tx.length}</p>
                                   <div>
                                     {txInfo}
                                   </div>
@@ -104,9 +105,10 @@ export default class SingleBlock extends Component {
                                   <p>Block Hash: {this.state.block.hash}</p>
                                   <p>Height: {block.height}</p>
                                   <p>Time: {block.time}</p>
+                                  <p>Transactions: {this.state.block.txIndexes.length}</p>
                                   {this.state.block.txIndexes.map( (txCode,i) => {
                                     return <div key={i}>
-                                            <Link to={`/transaction/${ txCode }`}>Transaction: {txCode}</Link>
+                                            <Link to={`/transaction/${ txCode }`}>Transaction {i}: {txCode}</Link>
                                           </div>
                                   })}
                                 </div>;

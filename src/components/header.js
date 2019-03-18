@@ -15,7 +15,7 @@ handleButtonClick() {
   render() {
     // This styles the buttons on the right.
     let changeButtons = {
-        "marginLeft": "200pt",
+        "marginLeft": "40%",
         "width": "300pt",
         "display": "flex",
         "border": "1pt black blue",
@@ -33,12 +33,7 @@ handleButtonClick() {
         "padding": "20px"
     }
 
-    let rightButtons = <div style={changeButtons}>
-                      <li>
-                        <NavLink activeClassName="selected" to="/">
-                          <input className='btn btn-outline-primary' type='submit' value='Button 1'/>
-                        </NavLink>
-                      </li>
+    let rightButton = <div style={changeButtons}>
                       <li>
                         <NavLink activeClassName="selected" onClick={this.handleButtonClick} to="/block/LatestBlock">
                           <input className='btn btn-outline-primary' type='submit' value='Latest Block'/>
@@ -53,7 +48,7 @@ handleButtonClick() {
             <input className='btn btn-outline-primary' type='submit' value='Homepage'/>
           </NavLink>
         </li>
-         {rightButtons}
+         {rightButton}
       </div>
       )
     }

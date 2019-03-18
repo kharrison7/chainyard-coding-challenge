@@ -48,7 +48,7 @@ export default class Homepage extends Component {
               <div className="card">
                 <div className="card-block">
                   <h5>Blocks from Today: {this.state.blocks.length}</h5>
-                  <h5>Today is: {this.state.fullDate}</h5>
+                  <h5>Today is: {fullDate}</h5>
                   <hr />
                     <div className="blocks">
                       {this.state.blocks.map( (block,i) => {
