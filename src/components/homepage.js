@@ -63,8 +63,9 @@ export default class Homepage extends Component {
                                       </div>
                         }
                         return <div key={i}>
-                          <Link to={`/block/${ block.hash }`}>Block Hash: {block.hash}</Link>
-                          <Link to={`/transaction/${ block.hash }`}>Transaction</Link>
+                          <div>
+                            <Link to={`/block/${ block.hash }`}>Block Hash: {block.hash}</Link>
+                          </div>
                           <p>Height: {block.height}</p>
                           {mainChain}
                           <p>Raw Time: {block.time}</p>

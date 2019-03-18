@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
 import './bootstrap.min.css';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 // import Header from './header.js';
 import request from 'superagent';
 // import { NavLink } from 'react-router-dom';
 
-export default class SingleBlock extends Component {
+export default class SingleTransaction extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -27,7 +27,7 @@ export default class SingleBlock extends Component {
            .end((err, res) => {
              if (err) {
                console.log("failed to get blocks!");
-               // this.setState({error: res.body.error});
+              //  this.setState({error: res.body.error});
              } else {
               console.log("response received");
               // console.log(res);
@@ -44,12 +44,11 @@ export default class SingleBlock extends Component {
        } else {
          console.log("props: "+this.props[0]);
          request
-           .get("https://cors-anywhere.herokuapp.com/https://blockchain.info/rawblock/"+hash+"?format=json")
-           // .get("https://cors-anywhere.herokuapp.com/https://blockchain.info/latestblock")
+           .get("https://cors-anywhere.herokuapp.com/https://blockchain.info/rawtx/"+hash+"?format=json")
            .end((err, res) => {
              if (err) {
                console.log("failed to get blocks!");
-              //  this.setState({error: res.body.error});
+               // this.setState({error: res.body.error});
              } else {
               console.log("response received");
               // console.log(res);
@@ -74,46 +73,21 @@ export default class SingleBlock extends Component {
     console.log(this.state.block);
     console.log("match: ");
     console.log(this.state.match);
-    console.log("tx: ");
-    console.log(this.state.block.tx);
-    console.log(this.state.block.tx);
-
-    let txInfo = <div></div>;
-    if(this.state.block.tx !== undefined && this.state.block.tx !== null){
-      txInfo = <div>
-                  {this.state.block.tx.map( (txCode,i) => {
-                    // txCode.map( (txCodeSub,u) => {
-                      return <div key={i}>
-                              <Link to={`/transaction/${ txCode }`}>Transaction: {txCode}</Link>
-                            </div>
-                    // })
-                  })}
-               </div>
-    }
-
     //singleBlockPageContents vary based on whether the block is the latest or a specific block.
     let singleBlockPageContents = null;
-    if (this.state.block && this.state.match.params.value !== 'LatestBlock') {
+    if (this.state.block && this.state.match.params.value != 'LatestBlock') {
       singleBlockPageContents = <div>
                                   <p>Block Hash: {this.state.block.hash}</p>
                                   <p>Height: {block.height}</p>
                                   <p>Time: {block.time}</p>
                                   <p>Size: {block.size}</p>
                                   <p>Previous Block: {block.prev_block}</p>
-                                  <div>
-                                    {/* {txInfo} */}
-                                  </div>
                                 </div>;
     } else if (this.state.block && this.state.match.params.value === 'LatestBlock'){
       singleBlockPageContents = <div>
                                   <p>Block Hash: {this.state.block.hash}</p>
                                   <p>Height: {block.height}</p>
                                   <p>Time: {block.time}</p>
-                                  {this.state.block.txIndexes.map( (txCode,i) => {
-                                    return <div key={i}>
-                                            <Link to={`/transaction/${ txCode }`}>Transaction: {txCode}</Link>
-                                          </div>
-                                  })}
                                 </div>;
     } else {
       singleBlockPageContents = <div>
