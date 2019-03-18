@@ -15,6 +15,21 @@ I appreciate your consideration.
 
 - - -
 
+Hosting using AWS S3 Bucket using CLI:
+https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html
+
+Deployment  Instructions:
+https://medium.com/ovrsea/deploy-automatically-a-react-app-on-amazon-s3-iam-within-minutes-da6cb0096d55
+
+AWS for Mac:
+https://docs.aws.amazon.com/cli/latest/userguide/install-macos.html
+
+Assigning Public Access to the Bucket:
+https://stackoverflow.com/questions/53496152/aws-s3-bucket-policy-editor-access-denied
+
+
+- - -
+
 Note to self:
 
 Remember to turn on CORS
