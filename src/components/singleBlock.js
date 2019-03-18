@@ -13,32 +13,58 @@ export default class SingleBlock extends Component {
     id: 1,
     block: '',
     match: props.match,
+    error: null
     };
   }
 
   componentWillMount() {
        let hash = this.state.match.params.value;
-       console.log("props: "+this.props[0]);
-       request
-         .get("https://cors-anywhere.herokuapp.com/https://blockchain.info/rawblock/"+hash+"?format=json")
-         // .get("https://cors-anywhere.herokuapp.com/https://blockchain.info/latestblock")
-         .end((err, res) => {
-           if (err) {
-             console.log("failed to get blocks!");
-            //  this.setState({error: res.body.error});
-           } else {
-            console.log("response received");
-            // console.log(res);
-            console.log("res.body: "+res.body);
-            if(res.body !== null){
-              console.log("block received");
-              console.log("res.body: "+ res.body);
-              // let blockJSON = JSON.stringify(res.body);
-              this.setState({block: res.body});
-              console.log("Individual Block: "+this.block);
-            }
-           }
-         })
+       if(hash === 'LatestBlock'){
+         request
+           // .get("https://cors-anywhere.herokuapp.com/https://blockchain.info/rawblock/"+hash+"?format=json")
+           .get("https://cors-anywhere.herokuapp.com/https://blockchain.info/latestblock")
+           .end((err, res) => {
+             if (err) {
+               console.log("failed to get blocks!");
+              //  this.setState({error: res.body.error});
+             } else {
+              console.log("response received");
+              // console.log(res);
+              console.log("res.body: "+res.body);
+              if(res.body !== null){
+                console.log("block received");
+                console.log("res.body: "+ res.body);
+                // let blockJSON = JSON.stringify(res.body);
+                this.setState({block: res.body});
+                console.log("Individual Block: "+this.block);
+              }
+             }
+           })
+       } else {
+         console.log("props: "+this.props[0]);
+         request
+           .get("https://cors-anywhere.herokuapp.com/https://blockchain.info/rawblock/"+hash+"?format=json")
+           // .get("https://cors-anywhere.herokuapp.com/https://blockchain.info/latestblock")
+           .end((err, res) => {
+             if (err) {
+               console.log("failed to get blocks!");
+              //  this.setState({error: res.body.error});
+             } else {
+              console.log("response received");
+              // console.log(res);
+              console.log("res.body: "+res.body);
+              if(res.body !== null){
+                console.log("block received");
+                console.log("res.body: "+ res.body);
+                // let blockJSON = JSON.stringify(res.body);
+                this.setState({block: res.body});
+                console.log("Individual Block: "+this.block);
+              }
+             }
+           })
+
+       }
+
   }
 
   render(){

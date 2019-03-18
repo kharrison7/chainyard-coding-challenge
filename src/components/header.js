@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
-
+//A simple navigation header.
 export default class Header extends Component {
   constructor(props) {
     super(props);
@@ -40,8 +40,8 @@ handleButtonClick() {
                         </NavLink>
                       </li>
                       <li>
-                        <NavLink activeClassName="selected" to="/block">
-                          <input className='btn btn-outline-primary' type='submit' value='Button 2'/>
+                        <NavLink activeClassName="selected" to="/block/LatestBlock">
+                          <input className='btn btn-outline-primary' type='submit' value='Latest Block'/>
                         </NavLink>
                       </li>
                     </div>;
