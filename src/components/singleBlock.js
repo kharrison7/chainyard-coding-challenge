@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import './bootstrap.min.css';
 import { Link } from 'react-router-dom';
-// import Header from './header.js';
 import request from 'superagent';
-// import { NavLink } from 'react-router-dom';
 
 export default class SingleBlock extends Component {
   constructor(props) {
@@ -16,7 +14,6 @@ export default class SingleBlock extends Component {
     error: null
     };
   }
-
 
   componentWillMount() {
        let hash = this.state.match.params.value;
@@ -63,9 +60,7 @@ export default class SingleBlock extends Component {
               }
              }
            })
-
        }
-
   }
 
   render(){
@@ -77,14 +72,14 @@ export default class SingleBlock extends Component {
     console.log("tx: ");
     console.log(this.state.block.tx);
     console.log(this.state.block.tx);
-
+    //This allows for access to individual transaction data.
     let txInfo = <div></div>;
     if(this.state.block.tx !== undefined && this.state.block.tx !== null){
       txInfo = <div>
                   {this.state.block.tx.map( (txCode,i) => {
                     // txCode.map( (txCodeSub,u) => {
                       return <div key={i}>
-                              <Link to={`/transaction/${ txCode }`}>Transaction: {txCode}</Link>
+                              <Link to={`/transaction/${ txCode.hash }`}>Transaction: {txCode.hash}</Link>
                             </div>
                     // })
                   })}
@@ -101,7 +96,7 @@ export default class SingleBlock extends Component {
                                   <p>Size: {block.size}</p>
                                   <p>Previous Block: {block.prev_block}</p>
                                   <div>
-                                    {/* {txInfo} */}
+                                    {txInfo}
                                   </div>
                                 </div>;
     } else if (this.state.block && this.state.match.params.value === 'LatestBlock'){
