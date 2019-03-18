@@ -5,15 +5,22 @@ export default class Header extends Component {
   constructor(props) {
     super(props);
     this.handleButtonClick = this.handleButtonClick.bind(this);
-    this.state = {};
+    this.state = {
+      isLatest: false,
+    };
   }
-
-handleButtonClick() {}
+//ideally this would be passed down as a prop to re-render the singleBlock component onClick.
+handleButtonClick() {
+  console.log("Latest Block Clicked");
+  this.setState(prevState => ({
+      isLatest: !prevState.isLatest
+    }));
+}
 
   render() {
     // This styles the buttons on the right.
     let changeButtons = {
-        "margin-left": "30%",
+        "marginLeft": "30%",
         "width": "100pt",
         "display": "flex",
         "border": "1pt black blue",

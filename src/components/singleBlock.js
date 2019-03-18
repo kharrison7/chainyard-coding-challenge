@@ -30,9 +30,7 @@ export default class SingleBlock extends Component {
               console.log("response received");
               if(res.body !== null){
                 console.log("block received");
-                console.log("res.body: "+ res.body);
                 this.setState({block: res.body});
-                console.log("Individual Block: "+this.block);
               }
              }
            })
