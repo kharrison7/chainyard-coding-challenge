@@ -15,11 +15,12 @@ export default class SingleBlock extends Component {
     };
   }
 
+  // before the component mounts, this makes an  API request for information to display.
   componentWillMount() {
        let hash = this.state.match.params.value;
+       //checks if the user is looking for the latest block.
        if(hash === 'LatestBlock'){
          request
-           // .get("https://cors-anywhere.herokuapp.com/https://blockchain.info/rawblock/"+hash+"?format=json")
            .get("https://cors-anywhere.herokuapp.com/https://blockchain.info/latestblock")
            .end((err, res) => {
              if (err) {
@@ -27,34 +28,26 @@ export default class SingleBlock extends Component {
                // this.setState({error: res.body.error});
              } else {
               console.log("response received");
-              // console.log(res);
-              console.log("res.body: "+res.body);
               if(res.body !== null){
                 console.log("block received");
                 console.log("res.body: "+ res.body);
-                // let blockJSON = JSON.stringify(res.body);
                 this.setState({block: res.body});
                 console.log("Individual Block: "+this.block);
               }
              }
            })
        } else {
-         console.log("props: "+this.props[0]);
          request
            .get("https://cors-anywhere.herokuapp.com/https://blockchain.info/rawblock/"+hash+"?format=json")
-           // .get("https://cors-anywhere.herokuapp.com/https://blockchain.info/latestblock")
            .end((err, res) => {
              if (err) {
                console.log("failed to get blocks!");
               //  this.setState({error: res.body.error});
              } else {
               console.log("response received");
-              // console.log(res);
-              console.log("res.body: "+res.body);
               if(res.body !== null){
                 console.log("block received");
                 console.log("res.body: "+ res.body);
-                // let blockJSON = JSON.stringify(res.body);
                 this.setState({block: res.body});
                 console.log("Individual Block: "+this.block);
               }
@@ -65,23 +58,14 @@ export default class SingleBlock extends Component {
 
   render(){
     let block = this.state.block;
-    console.log("Block: ");
-    console.log(this.state.block);
-    console.log("match: ");
-    console.log(this.state.match);
-    console.log("tx: ");
-    console.log(this.state.block.tx);
-    console.log(this.state.block.tx);
     //This allows for access to individual transaction data.
     let txInfo = <div></div>;
     if(this.state.block.tx !== undefined && this.state.block.tx !== null){
       txInfo = <div>
                   {this.state.block.tx.map( (txCode,i) => {
-                    // txCode.map( (txCodeSub,u) => {
                       return <div key={i}>
                               <Link to={`/transaction/${ txCode.hash }`}>Transaction {i}: {txCode.hash}</Link>
                             </div>
-                    // })
                   })}
                </div>
     }

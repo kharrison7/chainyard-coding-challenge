@@ -14,6 +14,7 @@ export default class SingleTransaction extends Component {
     };
   }
 
+// before the component mounts, this makes an  API request for information to display.
   componentWillMount() {
        let hash = this.state.match.params.value;
          console.log("props: "+this.props[0]);
@@ -25,14 +26,10 @@ export default class SingleTransaction extends Component {
                // this.setState({error: res.body.error});
              } else {
               console.log("response received");
-              // console.log(res);
-              console.log("res.body: "+res.body);
               if(res.body !== null){
                 console.log("block received");
                 console.log("res.body: "+ res.body);
-                // let blockJSON = JSON.stringify(res.body);
                 this.setState({block: res.body});
-                console.log("Individual Block: "+this.block);
               }
              }
            })
@@ -40,10 +37,6 @@ export default class SingleTransaction extends Component {
 
   render(){
     let block = this.state.block;
-    console.log("Block: ");
-    console.log(this.state.block);
-    console.log("match: ");
-    console.log(this.state.match);
     //singleTransactionPageContents vary based on whether the block is the latest or a specific block.
     let inputsData=<div></div>;
     if(this.state.block.inputs !== undefined && this.state.block.inputs !== null){
