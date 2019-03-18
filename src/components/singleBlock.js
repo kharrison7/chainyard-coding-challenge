@@ -97,7 +97,13 @@ export default class SingleBlock extends Component {
     }
     return(
       <div>
-        {singleBlockPageContents}
+        <div className="containment-for-homepage">
+          <section className="row">
+            <div className="col-md-10 offset-md-1">
+              {singleBlockPageContents}
+            </div>
+          </section>
+        </div>
       </div>
     );
   }
