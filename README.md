@@ -2,6 +2,21 @@ This project was built to fulfill the requirements of this coding challenge:
 
 https://github.com/Chainyard/coding-challenge
 
+Github:
+https://github.com/kharrison7
+
+Profile:
+https://kharrison7.github.io/Profile/
+
+Resume:
+https://kharrison7.github.io/Profile/Kevin.Harrison.Resume.pdf
+
+I appreciate your consideration.
+
+- - -
+
+Note to self:
+
 Remember to turn on CORS
 
 Herokuapp used to deal with CORS requirements in the Header:
