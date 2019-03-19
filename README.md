@@ -18,7 +18,7 @@ http://chainyardcodingchallenge.s3-website-us-east-1.amazonaws.com/
 
 Resources About Myself:
 
-Github :
+Github:
 https://github.com/kharrison7
 
 Resume:
