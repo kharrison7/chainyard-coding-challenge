@@ -7,7 +7,7 @@ Create a simple web app that allows a user to browse blockchain block & transact
 
   * View a single block
   * View a single transaction on a block
-  * View the latest block 
+  * View the latest block
 
 Additionally, my web application has a homepage that displays all the blocks created over the last 24 hours.
 
@@ -18,7 +18,7 @@ http://chainyardcodingchallenge.s3-website-us-east-1.amazonaws.com/
 
 Resources About Myself:
 
-Github:
+Github :
 https://github.com/kharrison7
 
 Resume:
