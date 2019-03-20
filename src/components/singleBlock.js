@@ -70,6 +70,7 @@ export default class SingleBlock extends Component {
 
     //singleBlockPageContents vary based on whether the block is the latest or a specific block.
     let singleBlockPageContents = null;
+    //There are three options here, to load the latest block, a specific block, or to be loading waiting for information.
     if (this.state.block && this.state.match.params.value !== 'LatestBlock') {
       singleBlockPageContents = <div>
                                   <p>Block Hash: {this.state.block.hash}</p>

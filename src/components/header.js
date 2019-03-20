@@ -11,7 +11,6 @@ export default class Header extends Component {
   }
 //ideally this would be passed down as a prop to re-render the singleBlock component onClick.
 handleButtonClick() {
-  console.log("Latest Block Clicked");
   this.setState(prevState => ({
       isLatest: !prevState.isLatest
     }));
